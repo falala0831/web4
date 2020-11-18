@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>修改界面</title>
+    <link rel="stylesheet" href="../static/my.css">
+    <script src="../static/add.js">
+    </script>
+</head>
+<body>
+<div id="panel-add">
+    <div class="panel-header">
+        <h2>修改联系人</h2>
+    </div>
+    <div class="panel-content">
+        <form action="/checkalter" method="post" th:object="${cont}">
+            <p id="p1" class="user-pwd">
+                <input type="text" id="Uname" th:field="*{contactname}" autocomplete="off" maxlength="25"
+                       oninput="check('Uname')"
+                       pattern="[\u4e00-\u9fa5a-zA-Z_0-9]{2,}" placeholder="请输入姓名(中文英文数字)" required/>
+            </p>
+            <p id="r1"></p>
+            <p id="p2" class="user-pwd">
+                <input type="text" id="Utel" th:field="*{tel}" autocomplete="off" maxlength="11" oninput="check('Utel')"
+                       pattern="[0-9]{8,11}" placeholder="请输入电话" required/>
+            </p>
+            <p id="r2"></p>
+            <p id="p3" class="user-pwd">
+                <input type="email" id="Uemail" th:field="*{email}" placeholder="请输入邮箱" oninput="check('Uemail')"
+                       autocomplete="off" maxlength="30" pattern=".+@.+" required/>
+            </p>
+            <p id="r3"></p>
+            <p id="p4" class="user-pwd">
+                <input type="text" id="Uadd" th:field="*{addr}" placeholder="请输入住址" oninput="check('Uadd')"
+                       autocomplete="off" maxlength="50" pattern=".+" required/>
+            </p>
+            <p id="r4"></p>
+            <p id="p5" class="user-pwd">
+                <input type="text" id="Uqq" th:field="*{qq}" pattern="[0-9]{8,10}" oninput="check('Uqq')"
+                       maxlength="14" autocomplete="off" placeholder="请输入8-10位QQ号" required/>
+            </p>
+            <p id="r5"></p>
+            <input class="login-btn" type="submit" id="sub" value="提交">
+        </form>
+    </div>
+</div>
+</body>
+</html>

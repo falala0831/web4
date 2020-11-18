@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>通讯录界面</title>
+    <link rel="stylesheet" href="../static/my.css"/>
+    <script src="../static/message.js"></script>
+</head>
+<body>
+<div id="panel-addressList">
+    <div class="panel-header">
+        <h2>通讯录列表</h2>
+    </div>
+    <div class="panel-content">
+        <table id="customers">
+            <thead>
+            <tr>
+                <td>姓名</td>
+                <td>电话</td>
+                <td>邮箱</td>
+                <td>住址</td>
+                <td>QQ</td>
+                <td>操作</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="m:${session.table.getTableinfo()}">
+                <td th:text="${m.getContactname()}"></td>
+                <td th:text="${m.getTel()}"></td>
+                <td th:text="${m.getEmail()}"></td>
+                <td th:text="${m.getAddr()}"></td>
+                <td th:text="${m.getQq()}"></td>
+                <td>
+                    <button onclick="alter(this)">修改</button>
+                    <button onclick="del(this)">删除</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="buttonContainer">
+            <button class="b1" onclick="add()">增加</button>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
